@@ -9,7 +9,7 @@ object Exercise1Candidate {
 
   def execute(): (DataFrame, DataFrame) =
     {
-        //Please load movies and ratings csv's in output dataframes.
-      (null, null)
+        val movies_df=spark.read.format("csv").option("header",false).option("inferSchema",true).option("delimiter","::").schema("MovieID integer,Title String,Genres string").load("/Users/ankittripathy/Downloads/new_day/movies.dat")
+val ratings_df=spark.read.format("csv").option("header",false).option("delimiter","::").schema("UserID integer,MovieID integer,Rating string,Timestamp string").load("/Users/ankittripathy/Downloads/new_day/ratings.dat")
     }
 }
